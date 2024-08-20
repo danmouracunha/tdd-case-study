@@ -59,7 +59,7 @@ class CustomLinkedListTest {
 
     @Test
     @Order(4)
-    public void testCustomLinkedListRemove_whenHasMoreThanOneElement_shouldHaveSizeZeroAndNoElements() {
+    public void testCustomLinkedListRemove_whenHasMoreThanOneElement_shouldHaveSizeTwoAndOtherElements() {
         // Arrange
         CustomLinkedList<String> customLinkedList = new CustomLinkedList<>();
         customLinkedList.add("Testing-123");
