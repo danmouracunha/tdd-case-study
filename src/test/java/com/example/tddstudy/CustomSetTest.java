@@ -14,6 +14,7 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.verify;
 
 class CustomSetTest {
 
@@ -36,13 +37,13 @@ class CustomSetTest {
     public void testCustomSetGet_whenHasAValidInput_thenReturnCorrectPosition() {
         // Arrange
         CustomSet<String> customSet = new CustomSet<>();
-        customSet.add("A");
-        customSet.add("B");
-        customSet.add("C");
-        // Act
-            
-
+        customSet.add("122");
+        customSet.add("222");
+        customSet.add("333");
+        // Act & Assert
+        var value = assertDoesNotThrow(() -> customSet.get(1));
         // Assert
+        assertEquals("222", value);
 
     }
 

@@ -19,15 +19,30 @@ public class CustomSet<T> {
     public void add(T data) {
         if (head == null) {
             this.head = new CustomNode<>(data);
-            this.tail = new CustomNode<>(data);
+            this.tail = head;
         } else {
-            CustomNode<T> previousTail = this.tail;
             CustomNode<T> newTail = new CustomNode<>(data);
-            previousTail.setNextNode(newTail);
+            this.tail.setNextNode(newTail);
             this.tail = newTail;
         }
         this.size++;
     }
 
 
+
+    public T get(int targetIndex) {
+        CustomNode<T> current = this.head;
+        int currentIndex = 0;
+        CustomNode<T> targetNode = getDeeperNode(current, currentIndex, targetIndex);
+        return targetNode.getNodeValue();
+    }
+
+    private CustomNode<T> getDeeperNode(CustomNode<T> current, int currentIndex, int targetIndex) {
+         if (currentIndex == targetIndex) {
+             return current;
+         } else {
+             currentIndex++;
+             return getDeeperNode(current.getNextNode(),currentIndex,targetIndex);
+         }
+    }
 }
